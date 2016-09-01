@@ -1,5 +1,10 @@
+/*Programa que escreve em um arquivo (arquivo.txt) e posteriormente extrai as linhas desse arquivo e
+ * as envia para uma lista*/
+
+//nome do pacote
 package ex5OutputStream_Lista;
 
+//imports
 import java.*;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -11,6 +16,8 @@ public class Ex5ClassePrincipal {
 	public static void main(String[] args){
 		CarregaOutputStream varCarregaArquivo = new CarregaOutputStream();
 		Scanner digitalizadorItensLista = new Scanner(System.in);
+		Scanner scaInputData = new Scanner(System.in);
+		String strInputData = "";
 		List<String> listaItens= new ArrayList();
 		FileToList file;
 		String itensLista;
@@ -40,17 +47,22 @@ public class Ex5ClassePrincipal {
 				System.out.println("Posicao " +i+": " + listaItens.get(i));
 			}
 			
-			
-			System.out.println("EXCLUINDO ITEM 1");
-			listaItens.remove(1);
-			
-			if(!listaItens.contains(1)) System.out.println("ITEM 1 EXCLUIDO");
-			else System.out.println("ERRO!!!");
+			while(!listaItens.isEmpty() && !strInputData.equals("sair")){
+				System.out.println("DIGITE O NUMERO DO ITEM QUE DESEJA EXCLUIR");
+				strInputData = scaInputData.next();
+				System.out.println("EXCLUINDO ITEM "+ Integer.parseInt(strInputData));
+				listaItens.remove(Integer.parseInt(strInputData));
+				System.out.println("ITEM "+Integer.parseInt(strInputData)+" EXCLUIDO");
+				System.out.println("DESEJA CONTINUAR (para finalizar digite 'sair') ");
+				strInputData = scaInputData.next();
+			}
 			
 			System.out.println("DADOS QUE ESTAO NA LISTA: ");
 			for(int i=0; i<listaItens.size(); i++){
 				System.out.println("Posicao " +i+": " + listaItens.get(i));
 			}
+			
+			if(listaItens.isEmpty())System.out.println("A LISTA ESTA VAZIA");
 			
 			
 			
