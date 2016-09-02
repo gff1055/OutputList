@@ -33,4 +33,10 @@ public class FileToList {
 		
 	}
 	
+	public void showItemsLista(List paramList){
+		for(int i=0; i<paramList.size(); i++){
+			System.out.println("Posicao " +i+": " + paramList.get(i));
+		}
+	}
+	
 }
