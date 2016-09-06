@@ -1,5 +1,8 @@
-zero
 um
 dois
 tres
 quatro
+cinco
+seid
+sete
+oito

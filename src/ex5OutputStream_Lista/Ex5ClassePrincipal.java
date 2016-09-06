@@ -9,6 +9,7 @@ import java.*;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -64,21 +65,21 @@ public class Ex5ClassePrincipal {
 				System.out.println("Posicao " +i+": " + listaItens.get(i));
 			}
 			
+			//usuario digita a posicao que quer excluir
+			System.out.println("DIGITE O NUMERO DO ITEM QUE DESEJA EXCLUIR");
+			strInputData = scaInputData.next();
+			
 			//processo de exclusao de um item
 			//o programa vai excluir até que o usuario digite a palavra "sair" ou a lista fique vazia
 			while(!listaItens.isEmpty() && !strInputData.equals("sair")){
-				
-				//usuario digita a posicao que quer excluir
-				System.out.println("DIGITE O NUMERO DO ITEM QUE DESEJA EXCLUIR");
-				strInputData = scaInputData.next();
-				
+								
 				//iniciando processo de exclusao
 				System.out.println("EXCLUINDO ITEM "+ Integer.parseInt(strInputData));
 				listaItens.remove(Integer.parseInt(strInputData));
 				System.out.println("ITEM "+Integer.parseInt(strInputData)+" EXCLUIDO");
 				
-				//pergunta ao usuario se ele deseja continuar
-				System.out.println("DESEJA CONTINUAR (para finalizar digite 'sair') ");
+				//usuario digita a posicao que quer excluir
+				System.out.println("DIGITE O NUMERO DO ITEM QUE DESEJA EXCLUIR");
 				strInputData = scaInputData.next();
 			}
 			
@@ -89,9 +90,20 @@ public class Ex5ClassePrincipal {
 			System.out.println("DADOS QUE ESTAO NA LISTA: ");
 			file.showItemsLista(listaItens);
 			
-	//		for(int i=0; i<listaItens.size(); i++){
-		//		System.out.println("Posicao " +i+": " + listaItens.get(i));
-			//}
+			System.out.println("DADOS QUE ESTAO NA LISTA EM ORDEM ALFABETICA: ");
+			//Ordenando em ordem alfabetica
+			Collections.sort(listaItens);
+			file.showItemsLista(listaItens);
+			
+			System.out.println("MAIOR ELEMENTO DA LISTA: "+ Collections.max(listaItens));
+			
+			System.out.println("MENOR ELEMENTO DA LISTA: "+ Collections.min(listaItens));
+			
+			System.out.println("DADOS QUE ESTAO NA LISTA EM ORDEM INVERSA: ");
+			//Ordenando em ordem alfabetica
+			Collections.reverse(listaItens);
+			file.showItemsLista(listaItens);
+			
 			
 			
 			
